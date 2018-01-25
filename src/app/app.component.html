@@ -1,0 +1,32 @@
+<div class="container main-container animated fadeIn">
+
+    <h1>Fire Chat</h1>
+    <hr>
+
+    <div class="col-md-12 text-right" *ngIf="_chatService.user.uid">
+
+        <button (click)="_chatService.logout()" type="button" class="btn btn-outline-danger">
+            Logout
+        </button>
+    </div>
+
+
+    <div *ngIf="!_chatService.user.uid">
+        <app-login></app-login>
+    </div>
+    <br>
+
+    <div class="row" *ngIf="_chatService.user.uid">
+
+        <div class="col-md-10">
+            <div class="chat-window">
+                <app-chat></app-chat>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <app-user></app-user>
+        </div>
+
+
+    </div>
